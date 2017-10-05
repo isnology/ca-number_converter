@@ -29,7 +29,7 @@ RSpec.describe NumberConversion, type: :model do
   it 'should allow valid values' do
     expect(NumberConversion.new(number: 9, base: 16)).to be_valid
     expect(NumberConversion.new(number: 9, base: 2)).to be_valid
-    expect(NumberConversion.new(number: 9, base: 7)).to be_valid
+    expect(NumberConversion.new(number: 9, base: 36)).to be_valid
     expect(NumberConversion.new(number: 0, base: 7)).to be_valid
   end
   
@@ -41,10 +41,13 @@ RSpec.describe NumberConversion, type: :model do
   it 'should disallow invalid bases' do
     expect(NumberConversion.new(number: 5, base: 0)).to be_invalid
     expect(NumberConversion.new(number: 5, base: 1)).to be_invalid
+    expect(NumberConversion.new(number: 5, base: 37)).to be_invalid
+    expect(NumberConversion.new(number: 5, base: 555)).to be_invalid
   end
 
   it 'should disallow missing required attributes' do
     expect(NumberConversion.new).to be_invalid
     expect(NumberConversion.new(number: '', base: '')).to be_invalid
   end
+  
 end

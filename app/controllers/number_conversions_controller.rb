@@ -11,7 +11,8 @@ class NumberConversionsController < ApplicationController
     number = safe_params[:number]
     
     @number_conversion = NumberConversion.new(number: number, base: base)
-    @number_conversion.save
-    @past_conversions = NumberConversion.all
+    @number_conversion.save if request.post?
+    @past_conversions = NumberConversion.all.order(created_at: :desc)
+    @toggle = true
   end
 end

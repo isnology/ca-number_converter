@@ -1,6 +1,6 @@
 class NumberConversion < ApplicationRecord
   validates :number, numericality: {greater_than_or_equal_to: 0}
-  validates :base, numericality: {greater_than_or_equal_to: 2}
+  validates :base, inclusion: (2..36)
   
   TRANS = ('0'..'9').to_a + ('a'..'z').to_a
   def number_to_base

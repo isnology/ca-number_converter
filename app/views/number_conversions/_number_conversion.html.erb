@@ -1,3 +1,7 @@
-<div>
-  <%= "#{number_conversion.number} to base #{number_conversion.base} is #{number_conversion.number_to_base}" %>
+<div class="card">
+  <% @toggle = !@toggle %>
+  <div class="card-body <%= @toggle ? 'bg-faded text-muted' : 'bg-light text-dark' %> ">
+    <%= number_conversion.number %><sub>10</sub> =
+    <%= number_conversion.number_to_base %><sub><%= number_conversion.base %></sub>
+  </div>
 </div>

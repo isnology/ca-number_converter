@@ -4,10 +4,14 @@
 </p>
 
 <%= form_with(local: true) do |f| %>
+
+
   <% if @number_conversion.errors.any? %>
+    <div class="alert alert-danger">
     <% @number_conversion.errors.full_messages.each do |message| %>
       <p><%= message %></p>
     <% end %>
+    </div>
   <% end %>
   <div>
   <%= f.label :number, 'Enter your number:' %>
@@ -16,12 +20,12 @@
 
   <% if @url.nil? %>
     <div>
-    <%= f.label :base, 'Convert to base' %>
+    <%= f.label :base, 'Convert to base:' %>
     <%= f.text_field :base, value: @number_conversion.base %>
     </div>
   <% end %>
 
-  <%= f.button 'Convert' %>
+  <%= f.button 'Convert', class: 'btn btn-primary' %>
 <% end %>
 
 <% if @number_conversion.number %>
