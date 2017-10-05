@@ -1,24 +1,32 @@
-# README
+# Number Converter
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Enter your number:
+[.....]
 
-Things you may want to cover:
+Convert to base:
+[......]
 
-* Ruby version
+[ convert ]
 
-* System dependencies
 
-* Configuration
+5609 in base 16 is 15E9
 
-* Database creation
 
-* Database initialization
+## Controllers
 
-* How to run the test suite
+- NumberConverterController
+- index view
+- 'rails g controller NumberConverter index'
 
-* Services (job queues, cache servers, search engines, etc.)
+## chalenge
 
-* Deployment instructions
+### Create a model NumberConversion and save in database for each conversion
+- input_number
+- base
 
-* ...
+### Add Bootstrap 4
+
+### Add /base/5
+### Add /base/9
+### Add /base/16
+### Add /base/:base => params[:base]

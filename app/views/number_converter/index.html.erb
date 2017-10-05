@@ -1,0 +1,19 @@
+<h1>Number Converter</h1>
+
+<%= form_with(local: true) do |f| %>
+  <div>
+  <%= f.label :number, 'Enter your number:' %>
+  <%= f.text_field :number, value: @number %>
+  </div>
+
+  <% if @url.nil? %>
+    <div>
+    <%= f.label :base, 'Convert to base' %>
+    <%= f.text_field :base, value: @base %>
+    </div>
+  <% end %>
+
+  <%= f.button 'Convert' %>
+<% end %>
+
+<p>in base <%= "#{@base}: #{@answer}" %></p>
