@@ -1,0 +1,32 @@
+<h1>Number Converter</h1>
+<p>
+  <%= pluralize(@past_conversions.count, 'conversion') %>
+</p>
+
+<%= form_with(local: true) do |f| %>
+  <% if @number_conversion.errors.any? %>
+    <% @number_conversion.errors.full_messages.each do |message| %>
+      <p><%= message %></p>
+    <% end %>
+  <% end %>
+  <div>
+  <%= f.label :number, 'Enter your number:' %>
+  <%= f.text_field :number, value: @number_conversion.number %>
+  </div>
+
+  <% if @url.nil? %>
+    <div>
+    <%= f.label :base, 'Convert to base' %>
+    <%= f.text_field :base, value: @number_conversion.base %>
+    </div>
+  <% end %>
+
+  <%= f.button 'Convert' %>
+<% end %>
+
+<% if @number_conversion.number %>
+  <p>in base <%= "#{@number_conversion.base}: #{@number_conversion.number_to_base}" %></p>
+<% end %>
+<H2>History</H2>
+
+<%= render @past_conversions %>

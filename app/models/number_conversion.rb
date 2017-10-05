@@ -9,7 +9,6 @@ class NumberConversion < ApplicationRecord
     
     return '0' if number < 1
     return 'undeterminable' if base < 2
-  
     
     output = ''
     while number > 0
